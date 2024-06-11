@@ -2,12 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Netflix";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/assets/fonts/NetflixSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Varsity";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/assets/fonts/VarsityRegular.woff2") format("woff2");
+}
+
 html {
   height: 100%;
   line-height: 1.2;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Netflix", Helvetica, Arial, sans-serif;
   font-weight: 400;
+  font-size: 16px;
 }
