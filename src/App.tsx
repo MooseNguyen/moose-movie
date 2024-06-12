@@ -1,7 +1,12 @@
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import useRouterElement from './useRouterElement'
+
 function App() {
+  const routerElement = useRouterElement()
   return (
     <>
-      <h1>hi</h1>
+      {routerElement}
+      <ReactQueryDevtools initialIsOpen={false} />
     </>
   )
 }

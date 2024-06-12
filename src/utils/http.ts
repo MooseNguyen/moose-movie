@@ -1,10 +1,13 @@
 import axios, { AxiosError, type AxiosInstance } from 'axios'
 import queryString from 'query-string'
 import apiConfig from 'src/constants/config'
+import { getSessionIdFromCookie } from './auth'
 
 export class Http {
   instance: AxiosInstance
+  private sessionId: string
   constructor() {
+    this.sessionId = getSessionIdFromCookie()
     this.instance = axios.create({
       baseURL: apiConfig.baseURL,
       headers: {
