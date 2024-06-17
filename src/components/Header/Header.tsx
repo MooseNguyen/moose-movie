@@ -1,13 +1,12 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from 'src/assets/images/logo.png'
-import './Header.css'
 import { useEffect, useRef, useState } from 'react'
 import classNames from 'classnames'
 import { headerMenu } from 'src/constants/layout'
 
 export const Header = () => {
   const [isHeaderActive, setIsHeaderActive] = useState<boolean>(false)
-
+  const { pathname } = useLocation()
   const headerRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
@@ -41,7 +40,16 @@ export const Header = () => {
           </Link>
           <div className='col-span-9 w-full h-full flex items-center justify-end'>
             {headerMenu.map((header, index) => (
-              <Link to={header.path} key={index} className='header-item'>
+              <Link
+                to={header.path}
+                key={index}
+                className={classNames(
+                  'w-[120px] h-full relative flex items-center justify-center font-bold text-xs uppercase tracking-widest duration-main after:absolute after:-bottom-[12px] after:left-1/2 after:w-[70%] after:h-[2px] after:origin-left after:-translate-x-1/2 after:scale-x-0 after:bg-mainOrange after:duration-main hover:text-mainOrange hover:after:-translate-x-1/2 hover:after:scale-x-100 hover:after:duration-main',
+                  {
+                    'text-mainOrange after:text-mainOrange after:scale-x-100': pathname === header.path
+                  }
+                )}
+              >
                 {header.name}
               </Link>
             ))}

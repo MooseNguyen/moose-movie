@@ -2,7 +2,7 @@ import path from 'src/constants/path'
 import { useRoutes } from 'react-router-dom'
 import { MainLayout } from './layouts'
 import { Suspense } from 'react'
-import { Home, Login } from './pages'
+import { Home, Login, MoviePage } from './pages'
 
 export default function useRouterElement() {
   const routerElement = useRoutes([
@@ -10,6 +10,14 @@ export default function useRouterElement() {
       path: '',
       element: <MainLayout />,
       children: [
+        {
+          path: path.home,
+          element: (
+            <Suspense>
+              <Home />
+            </Suspense>
+          )
+        },
         {
           path: path.login,
           element: (
@@ -19,10 +27,10 @@ export default function useRouterElement() {
           )
         },
         {
-          path: path.home,
+          path: path.moviCategory,
           element: (
             <Suspense>
-              <Home />
+              <MoviePage />
             </Suspense>
           )
         }

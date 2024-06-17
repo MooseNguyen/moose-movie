@@ -28,4 +28,16 @@ body {
   font-weight: 400;
   font-size: 16px;
   background-color: black;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #f78c1f !important;
 }
