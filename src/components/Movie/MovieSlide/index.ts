@@ -1,0 +1,1 @@
+export { MovieSlide } from './MovieSlide'

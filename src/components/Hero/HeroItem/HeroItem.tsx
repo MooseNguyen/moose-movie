@@ -26,7 +26,7 @@ export const HeroItem = ({ movie, isActive }: Props) => {
       className='flex items-center justify-center px-24 w-screen h-[100vh] bg-no-repeat bg-center bg-cover relative after:absolute after:bottom-0 after:left-0 after:w-full after:h-24 after:bg-gradient-to-t after:from-black after:to-transparent'
       style={{ backgroundImage: `url(${backdrop})` }}
     >
-      <div className='container w-[1200px] flex justify-center items-center mt-28 relative'>
+      <div className='container w-[1200px] flex justify-center items-center mt-20 relative'>
         <img
           src={poster}
           alt='poster'

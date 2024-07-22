@@ -3,6 +3,7 @@ const path = {
   login: '/login',
   movie: 'movie/',
   tv: 'tv/',
+  similar: 'similar/',
   moviCategory: ':category'
 }
 

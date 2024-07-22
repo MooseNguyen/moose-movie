@@ -13,28 +13,28 @@ import 'swiper/css/autoplay'
 
 export const HeroSlide = () => {
   const queryConfig: MovieParams = { page: 1 }
-  const { data: movieListData } = useQuery({
-    queryKey: ['products', queryConfig],
+  const { data: moviesHeroData } = useQuery({
+    queryKey: ['movies', queryConfig],
     queryFn: () => {
       return movieApi.getMovies(movieType.popular as MovieType, queryConfig)
     }
   })
 
-  const movieList = movieListData?.data.results.slice(0, 5)
+  const movieList = moviesHeroData?.data.results.slice(0, 5)
 
   return (
     <div className='w-full h-full'>
       <Swiper
         modules={[Autoplay, EffectFade, Navigation]}
         effect='fade'
-        // autoplay={{
-        //   delay: 4000
-        // }}
+        autoplay={{
+          delay: 4000
+        }}
         navigation={true}
         grabCursor={true}
         spaceBetween={0}
       >
-        {movieListData && (
+        {moviesHeroData && (
           <div>
             {movieList?.map((movie, index) => (
               <SwiperSlide key={index}>

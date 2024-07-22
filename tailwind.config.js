@@ -91,12 +91,13 @@ export default {
         },
         '.button-hero': {
           padding: '0.75rem 2.5rem',
+          border: '3px solid #181b1f',
           backgroundColor: '#181b1f',
           textTransform: 'uppercase',
           transition: '0.3s'
         },
         '.button-hero-hover': {
-          border: '4px solid #f78c1f',
+          border: '3px solid #f78c1f',
           color: '#f78c1f',
           transition: '0.3s',
           boxShadow: '0px 0px 27px 0px #f78c1f'

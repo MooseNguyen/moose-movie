@@ -50,3 +50,8 @@ export interface Tv {
   vote_average: string
   vote_count: number
 }
+
+export interface TvSimilar extends Tv {
+  first_air_date: string
+  name: string
+}
