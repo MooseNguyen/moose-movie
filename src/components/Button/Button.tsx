@@ -1,10 +1,10 @@
 import { ButtonHTMLAttributes } from 'react'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
 }
 
-export const Button = ({ className, children, ...rest }: ButtonProps) => {
+export const Button = ({ className, children, ...rest }: IButtonProps) => {
   return (
     <button
       className={`rounded-[60px] font-bold text-white text-sm tracking-wider cursor-pointer overflow-hidden relative ${className ? className : null}`}

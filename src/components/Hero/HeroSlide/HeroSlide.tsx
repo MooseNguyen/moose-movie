@@ -1,26 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
-import movieApi from 'src/api/movie.api'
-import { movieType } from 'src/constants/movie'
-import { MovieParams, MovieType } from 'src/types/movie.type'
 import { HeroItem } from '../HeroItem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade, Navigation } from 'swiper/modules'
-
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/effect-fade'
-import 'swiper/css/autoplay'
+import useGetMovieList from 'src/hooks/useGetMovieList'
+import { MOVIE_CATEGORY, MOVIE_TYPE } from 'src/constants/movie'
+import { IMovieParams } from 'src/types/movie.type'
 
 export const HeroSlide = () => {
-  const queryConfig: MovieParams = { page: 1 }
-  const { data: moviesHeroData } = useQuery({
-    queryKey: ['movies', queryConfig],
-    queryFn: () => {
-      return movieApi.getMovies(movieType.popular as MovieType, queryConfig)
-    }
-  })
+  const type = MOVIE_TYPE.POPULAR
+  const category = MOVIE_CATEGORY.MOVIE
+  const queryConfig: IMovieParams = {}
+  const queryKeyString = 'movieSlide'
 
-  const movieList = moviesHeroData?.data.results.slice(0, 5)
+  const { moviesData } = useGetMovieList({ queryKeyString, type, category, queryConfig })
+
+  const movieList = moviesData && moviesData.slice(0, 5)
 
   return (
     <div className='w-full h-full'>
@@ -30,11 +23,11 @@ export const HeroSlide = () => {
         autoplay={{
           delay: 4000
         }}
-        navigation={true}
-        grabCursor={true}
+        navigation
+        grabCursor
         spaceBetween={0}
       >
-        {moviesHeroData && (
+        {movieList && (
           <div>
             {movieList?.map((movie, index) => (
               <SwiperSlide key={index}>

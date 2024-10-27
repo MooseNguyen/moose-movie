@@ -1,14 +1,14 @@
 import classNames from 'classnames'
 import { Button } from 'src/components/Button'
-import { Movie } from 'src/types/movie.type'
+import { IMovieData } from 'src/types/movie.type'
 import { largeImage, smallImage } from 'src/utils/utils'
 
-interface Props {
-  movie: Movie
+interface IHeroItemProps {
+  movie: IMovieData
   isActive: boolean
 }
 
-export const HeroItem = ({ movie, isActive }: Props) => {
+export const HeroItem = ({ movie, isActive }: IHeroItemProps) => {
   const { backdrop_path, poster_path, title, vote_average, overview } = movie
 
   const backdrop = largeImage(backdrop_path ? backdrop_path : poster_path)

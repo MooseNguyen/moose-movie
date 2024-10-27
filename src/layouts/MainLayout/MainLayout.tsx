@@ -2,11 +2,11 @@ import { memo } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Footer, Header } from 'src/components'
 
-interface Props {
+interface IMainLayoutInnerProps {
   children?: React.ReactNode
 }
 
-const MainLayoutInner = ({ children }: Props) => {
+const MainLayoutInner = ({ children }: IMainLayoutInnerProps) => {
   return (
     <div>
       <Header />

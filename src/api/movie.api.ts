@@ -1,18 +1,18 @@
 import path from 'src/constants/path'
-import { Movie, MovieCategory, MovieParams, MovieType, Tv, TvSimilar, TvType } from 'src/types/movie.type'
+import { MovieCategory, IMovieParams, AllType, TvSimilar, IMovieData } from 'src/types/movie.type'
 import { SuccessResponse } from 'src/types/utils.type'
 import http from 'src/utils/http'
 
 const movieApi = {
-  getMovies(type: MovieType, params: MovieParams) {
+  getMovies(type: AllType, params: IMovieParams) {
     const URL = path.movie + type
-    return http.get<SuccessResponse<Movie>>(URL, {
+    return http.get<SuccessResponse<IMovieData>>(URL, {
       params
     })
   },
-  getTvs(type: TvType, params: MovieParams) {
+  getTvs(type: AllType, params: IMovieParams) {
     const URL = path.tv + type
-    return http.get<SuccessResponse<Tv>>(URL, {
+    return http.get<SuccessResponse<IMovieData>>(URL, {
       params
     })
   },

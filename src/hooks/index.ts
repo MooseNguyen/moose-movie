@@ -1,0 +1,1 @@
+export { useGetMovieList } from './useGetMovieList'

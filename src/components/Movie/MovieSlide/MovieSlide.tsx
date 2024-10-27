@@ -1,23 +1,24 @@
 import { Link } from 'react-router-dom'
 import { Button } from 'src/components/Button'
 import { MovieList } from '../MovieList'
+import { MovieCategory, AllType } from 'src/types/movie.type'
 
-interface Props {
+interface IMovieSlideProps {
   title: string
-  type: string
-  category: string
+  type: AllType
+  category: MovieCategory
 }
 
-export const MovieSlide = ({ title, type, category }: Props) => {
+export const MovieSlide = ({ title, type, category }: IMovieSlideProps) => {
   return (
     <section className='mt-12 block'>
-      <div className='flex items-center justify-between mb-8'>
-        <h3 className='text-lg font-bold tracking-wider uppercase text-white'>{title}</h3>
-        <Button>
-          <Link to='/'>More Movie</Link>
-        </Button>
+      <div className='flex items-center mb-8'>
+        <h3 className='text-xl font-bold tracking-wider uppercase text-white'>{title}</h3>
       </div>
       <MovieList type={type} category={category} />
+      <Button className='w-full text-right mt-8 px-4'>
+        <Link to='/'>More like this</Link>
+      </Button>
     </section>
   )
 }

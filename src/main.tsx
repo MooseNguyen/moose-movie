@@ -6,6 +6,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { BrowserRouter } from 'react-router-dom'
 import { AppProvider } from './context/app.context.tsx'
 
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/effect-fade'
+import 'swiper/css/autoplay'
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

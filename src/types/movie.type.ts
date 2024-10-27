@@ -1,22 +1,27 @@
-export interface MovieCategory {
-  movie?: string
-  tv?: string
-}
+export type MovieCategory = 'movie' | 'tv'
+export type AllType = 'upcoming' | 'popular' | 'top_rated' | 'on_the_air'
 
-export interface MovieType {
-  upcoming?: string
-  popular?: string
-  top_rated?: string
-}
-
-export interface TvType {
-  topRated?: string
-  popular?: string
-  onTheAir?: string
-}
-
-export interface MovieParams {
+export interface IMovieParams {
   page?: number
+}
+
+export interface IMovieData {
+  adult: boolean
+  backdrop_path: string
+  genre_ids: number[]
+  id: number
+  origin_country?: string[]
+  original_language: string
+  original_name?: string
+  original_title?: string
+  overview: string
+  popularity: number
+  poster_path: string
+  release_date?: string
+  title?: string
+  video?: string
+  vote_average: number
+  vote_count: number
 }
 
 export interface Movie {
@@ -46,7 +51,7 @@ export interface Tv {
   original_name: string
   overview: string
   popularity: number
-  popster_path: string
+  poster_path: string
   vote_average: string
   vote_count: number
 }
